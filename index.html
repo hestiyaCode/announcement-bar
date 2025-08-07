@@ -17,28 +17,31 @@
     overflow: hidden;
     background: #111;
     color: #fff;
-    padding: 0.2em 0;
+    padding: 0.2em 0.2;
     font-size: 1em;
     white-space: nowrap;
     line-height: 2em;
     height: 2em; 
   }
   .custom-ticker__message {
-    display: inline-block;
-    position: absolute;
-    will-change: transform;
-    animation: ticker-scroll 22s linear infinite;
-    top: 0;
-    left: 0;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  display: inline-block;
+  position: absolute;
+  will-change: transform;
+  animation: ticker-scroll 30s linear infinite; /* Slower movement */
+  top: 0;
+  left: 0;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0%); }     /* Start at right edge, visible */
+  10%  { transform: translateX(0%); }     /* Pause at right edge */
+  100% { transform: translateX(-100%); }  /* Move to left */
+}
   .custom-ticker__message:hover {
     text-decoration: underline;
   }
-  @keyframes ticker-scroll {
-    from   { transform: translateX(100%); }
-    to     { transform: translateX(-100%); }
-  }
+ 
 </style>
